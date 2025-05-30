@@ -1,0 +1,130 @@
+.footer{
+    display: flex;
+    padding: 50px 170px;
+    flex-direction: column;
+    gap: 30px;
+    background-color: rgb(46, 46, 46);
+}
+
+
+.footer-topleft h1{
+    font-size: 35px;
+    margin-bottom: 10px;
+}
+
+
+.footer-email-input img{
+    width: 30px;
+    height: 30px;
+}
+
+.footer-top{
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer-topleft p{
+    font-size: 20px;
+    max-width: 400px;
+}
+
+.footer-topright{
+    align-items: center;
+    display: flex;
+    gap: 30px;  
+}
+
+.footer-topright img{
+    width: 50px;
+    height: 50px;
+}
+
+.footer-email-input{
+    display: flex;
+    gap: 30px;
+    padding: 20px 30px;
+    border-radius: 80px;
+    background: #646475;
+    padding-right: 80px;
+}
+
+.footer-email-input input{
+    outline: none;
+    border: none;
+    background: transparent;
+    color: aliceblue;
+    font-size: 18px;
+}
+
+.footer-email-input:hover{
+    border: 2px solid white;
+}
+
+.footer-sub{
+    font-size: 20px;
+    padding: 22px 50px;
+    border-radius: 50px;
+    background: linear-gradient(256deg, #df4c08 -5.09%, #b415ff 100%);
+    cursor: pointer;
+    transition: 0.3s;
+}
+.footer-sub:hover{
+    transform: scale(1.1);
+}
+
+.footer-bottom{
+    font-size: 18px;
+    text-align: center;
+}
+
+.li-icon{
+    border: none;
+    border-radius: 50%;
+    transition: 0.3s;
+}
+
+.li-icon:hover{
+    box-shadow: 0px 0px 6px #4caaf7;
+    transform: scale(1.1);
+}
+
+.git-ic{
+    border: none;
+    border-radius: 50%;
+    transition: 0.3s;
+}
+
+.git-ic:hover{
+    box-shadow: 0px 0px 6px #f8f8f8;
+    transform: scale(1.1);
+}
+
+
+@media screen and (max-width: 1268px) {
+    .footer {
+        padding: 30px 20px;
+    }
+
+    .footer-topleft h1{
+        font-size: 25px;
+        margin-bottom: 10px;
+    }
+
+    .footer-top {
+        flex-direction: column;
+        gap: 30px;
+        align-items: start;
+    }
+
+    .footer-topright {
+        flex-direction: row;
+        align-items: flex-start;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        gap: 20px;
+        font-size: 16px;
+    }
+
+}

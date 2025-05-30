@@ -1,0 +1,113 @@
+#profile {
+    border-radius: 10%;
+    width: 380px;
+    height: 500px;
+    margin-top: 230px;
+    box-shadow: 0px 2px 10px rgb(255, 255, 255);
+}
+
+.content {
+    width: 100%;
+    height: 100%;
+    top: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-align: center; 
+    gap: 200px;
+}
+
+.content-main {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    padding-top: 50px;
+}
+
+.profile-action {
+    display: flex;
+    flex-direction: row;
+    gap: 100px;
+    justify-content: center;
+    align-items: center;
+    text-align: center; 
+}
+
+#content-2 h1{
+    font-size: 40px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+#content-2 p{
+    font-size: 20px;
+    line-height: 40px;
+}
+
+.profile-action div{
+    font-size: 25px;
+    font-weight: 600;
+}
+
+.name span{
+    background: linear-gradient(270deg,#DF8908 10%, #B415FF 100%);
+    background-clip: text;
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+.profile-connect{
+    padding: 15px 25px;
+    border-radius:50px;
+    background: linear-gradient(264deg, orange -5.09%,rgb(235, 111, 228) 100%);
+    border: 2px solid white;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.profile-connect:hover{
+    box-shadow: 0px 1px 5px pink;
+    transform: scale(1.02);
+}
+
+.profile-resume{
+    padding: 15px 60px;
+    border-radius: 50px;
+    border: 2px solid white;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.profile-resume:hover{
+    box-shadow: 0px 1px 5px pink;
+    transform: scale(1.02);
+}
+
+@media (max-width: 1208px) {
+    .content {
+        flex-direction: column;
+        gap: 40px;
+        padding: 10px;
+        height: auto;
+        position: static;
+    }
+
+    #profile {
+        width: 290px;
+        height: 350px;
+    }
+
+    .profile-action {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .content-main {
+        gap: 30px;
+    }
+
+    h1 {
+        font-size: 18px;
+    }
+}

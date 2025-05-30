@@ -1,0 +1,100 @@
+.body{
+    display: flex;
+    flex-direction: row; 
+    gap: 80px;
+    margin-left: 40px;
+    margin-right: 40px;
+}
+
+.name h1{
+    margin-left: 40px;
+}
+
+#head{
+    text-align: center;
+    font-size: 60px;
+    background: linear-gradient(170deg, rgb(68, 240, 231) -5.69% ,rgb(247, 42, 42) 106.56%);
+    background-clip:text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.resume{
+    background-color: rgb(204, 204, 199);
+    color: black;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-left: 300px;  
+    margin-right: 300px;
+}
+
+.bold{
+    font-weight: 700;
+    font-size: 20px;
+}
+
+.ud{
+    text-decoration: underline;
+    font-weight: 600;
+}
+
+a{
+    text-decoration: none;
+}
+
+.right-section{
+    margin-left: 20px;
+}
+
+hr{
+    margin-right: 40px;
+    margin-left: 40px;
+}
+
+.body {
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+    margin: 40px;
+}
+
+@media (max-width: 1708px) {
+    .resume{
+        margin-left: 100px;  
+        margin-right: 100px;
+}
+
+}
+
+
+@media (max-width: 1068px) {
+    .body {    
+        flex-direction: column;
+        gap: 20px;
+        margin: 20px;
+    }
+
+    .resume {
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+
+    .name h1{
+        font-size: 30px;
+        text-align: center;
+    }
+
+    .right-section{
+        text-align: left;
+        margin: 0;
+    }
+
+
+    #head {
+        font-size: 40px; 
+    }
+
+    .bold {
+        font-size: 18px;
+    }
+}
