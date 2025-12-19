@@ -18,7 +18,7 @@ const Resume = () => {
             
             <div className="pdf-container">
                 <iframe 
-                    src="/MohanResume.pdf#toolbar=0&navpanes=0&scrollbar=0&view=FitH&zoom=page-width" 
+                    src="/MohanResume.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&view=FitH&zoom=page-width" 
                     title="Mohan Resume"
                     loading="lazy"
                     className="pdf-viewer"
