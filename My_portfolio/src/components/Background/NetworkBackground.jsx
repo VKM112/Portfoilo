@@ -23,7 +23,7 @@ const NetworkBackground = () => {
         }
 
         const createPoints = () => {
-            const count = Math.max(60, Math.floor(window.innerWidth / 35))
+            const count = Math.max(36, Math.floor(window.innerWidth / 55))
             pointsRef.current = Array.from({ length: count }).map(() => ({
                 x: Math.random() * canvas.width,
                 y: Math.random() * canvas.height,
@@ -51,7 +51,7 @@ const NetworkBackground = () => {
         const draw = () => {
             context.clearRect(0, 0, canvas.width, canvas.height)
             const points = pointsRef.current
-            const maxDistance = Math.min(canvas.width, canvas.height) * 0.36
+            const maxDistance = Math.min(canvas.width, canvas.height) * 0.26
 
             for (let i = 0; i < points.length; i += 1) {
                 for (let j = i + 1; j < points.length; j += 1) {
@@ -72,9 +72,9 @@ const NetworkBackground = () => {
             }
 
             points.forEach((point) => {
-                context.fillStyle = 'rgba(255, 255, 255, 0.45)'
+                context.fillStyle = 'rgba(255, 255, 255, 0.4)'
                 context.beginPath()
-                context.arc(point.x, point.y, 2.4, 0, Math.PI * 2)
+                context.arc(point.x, point.y, 2, 0, Math.PI * 2)
                 context.fill()
             })
         }
