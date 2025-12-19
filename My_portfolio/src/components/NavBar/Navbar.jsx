@@ -1,7 +1,7 @@
 import { Link } from 'react-scroll'
 import menu from '../../assets/menu.png'
 import close from '../../assets/cross.png'
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { motion, useMotionValueEvent, useScroll, AnimatePresence } from 'framer-motion'
 
 const Navbar = () => {
@@ -9,6 +9,14 @@ const Navbar = () => {
     const [isVisible, setIsVisible] = useState(true);
     const [lastScrollY, setLastScrollY] = useState(0);
     const { scrollY } = useScroll();
+
+    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+    useEffect(() => {
+        const handleResize = () => setWindowWidth(window.innerWidth);
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
 
     useMotionValueEvent(scrollY, "change", (latest) => {
         const currentScrollY = latest;
@@ -39,12 +47,14 @@ const Navbar = () => {
         alignItems: 'center',
         justifyContent: 'space-between',
         backgroundColor: 'black',
-        padding: '20px 30px',
+        padding: windowWidth < 640 ? '15px 15px' : '20px 30px',
         position: 'fixed',
         top: 0,
         left: 0,
         right: 0,
         zIndex: 100,
+        width: '100%',
+        boxSizing: 'border-box',
     };
 
     const nameStyle = {
@@ -54,22 +64,23 @@ const Navbar = () => {
         color: 'transparent',
         backgroundSize: '200% 100%',
         margin: 0,
+        fontSize: windowWidth < 640 ? '20px' : '24px',
     };
 
     const navOpenStyle = {
-        width: '30px',
-        height: '30px',
+        width: windowWidth < 640 ? '25px' : '30px',
+        height: windowWidth < 640 ? '25px' : '30px',
         cursor: 'pointer',
         zIndex: 101,
     };
 
     const navCloseStyle = {
-        width: '30px',
-        height: '30px',
+        width: windowWidth < 640 ? '25px' : '30px',
+        height: windowWidth < 640 ? '25px' : '30px',
         cursor: 'pointer',
         position: 'fixed',
-        top: '30px',
-        right: '30px',
+        top: windowWidth < 640 ? '20px' : '30px',
+        right: windowWidth < 640 ? '20px' : '30px',
         zIndex: 1001,
     };
 
@@ -92,7 +103,7 @@ const Navbar = () => {
     };
 
     const navConnectStyle = {
-        fontSize: '32px',
+        fontSize: windowWidth < 640 ? '24px' : '32px',
         cursor: 'pointer',
         color: 'white',
         position: 'relative',
@@ -153,7 +164,7 @@ const Navbar = () => {
                         repeat: Infinity
                     }}
                 >
-                    Matha Venkata Krishna Mohan
+                    {windowWidth < 640 ? "VKM" : "Matha Venkata Krishna Mohan"}
                 </motion.h1>
                 <img 
                     style={navOpenStyle} 
@@ -227,9 +238,8 @@ const Navbar = () => {
                             onMouseLeave={(e) => {
                                 e.currentTarget.style.borderBottom = 'none';
                             }}
-                            onClick={closeMenu}
                         >
-                            Projects
+                            <Link to="projects" smooth={true} duration={500} onClick={closeMenu}>Projects</Link>
                         </motion.li>
                         
                         <motion.li 

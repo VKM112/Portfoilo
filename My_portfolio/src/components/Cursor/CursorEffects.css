@@ -1,0 +1,60 @@
+.custom-cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(230, 230, 230, 0.6);
+    pointer-events: none;
+    transform: translate(-100px, -100px);
+    transition: transform 0.05s linear;
+    z-index: 2000;
+    mix-blend-mode: screen;
+}
+
+.custom-cursor.cursor-hover {
+    background: rgba(255, 200, 140, 0.9);
+    box-shadow: 0 0 12px rgba(255, 200, 140, 0.6);
+}
+
+.cursor-burst {
+    position: fixed;
+    width: 10px;
+    height: 10px;
+    pointer-events: none;
+    z-index: 2000;
+    animation: burst-fade 0.45s ease-out forwards;
+}
+
+.cursor-burst-dot {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: rgba(230, 230, 230, 0.6);
+    transform: translate(-50%, -50%);
+    animation: dot-fly 0.45s ease-out forwards;
+}
+
+@keyframes dot-fly {
+    to {
+        transform: translate(calc(-50% + var(--x)), calc(-50% + var(--y)));
+        opacity: 0;
+    }
+}
+
+@keyframes burst-fade {
+    to {
+        opacity: 0;
+    }
+}
+
+@media (pointer: coarse) {
+    .custom-cursor,
+    .cursor-burst {
+        display: none;
+    }
+}

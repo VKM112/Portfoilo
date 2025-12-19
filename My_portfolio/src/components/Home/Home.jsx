@@ -1,10 +1,20 @@
-import React, { useRef } from 'react'
+import React, { useState, useEffect } from 'react'
 import Profile_img from '../../assets/Profile.jpg'
 import { Link } from 'react-scroll'
 import { motion } from 'framer-motion'
+import AnimatedButton from '../UI/AnimatedButton'
+import './Home.css'
 
 
 const Home = ({ homeImageRef }) => {
+    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+    useEffect(() => {
+        const handleResize = () => setWindowWidth(window.innerWidth);
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
+
     const containerVariants = {
         hidden: { opacity: 0 },
         visible: {
@@ -18,7 +28,7 @@ const Home = ({ homeImageRef }) => {
         hidden: { opacity: 0, scale: 0.8, y: 50 },
         visible: {
             opacity: 1, 
-            scale: 1, 
+            scale: 1,
             y: 0,
             transition: { duration: 0.8, ease: "easeOut" }
         }
@@ -59,16 +69,18 @@ const Home = ({ homeImageRef }) => {
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                paddingTop: '80px'
+                paddingTop: '80px',
+                boxSizing: 'border-box',
+                overflowX: 'hidden'
             }}
         >
             <motion.div 
                 style={{
                     display: 'flex',
-                    flexDirection: window.innerWidth >= 1024 ? 'row' : 'column',
+                    flexDirection: windowWidth >= 1024 ? 'row' : 'column',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    gap: window.innerWidth >= 1024 ? '80px' : '30px',
+                    gap: windowWidth >= 1024 ? '80px' : '30px',
                     padding: '40px 20px',
                     width: '100%',
                     maxWidth: '1400px'
@@ -84,8 +96,8 @@ const Home = ({ homeImageRef }) => {
                     alt="Profile"
                     style={{
                         borderRadius: '10%',
-                        width: window.innerWidth >= 1024 ? '380px' : window.innerWidth >= 640 ? '320px' : '290px',
-                        height: window.innerWidth >= 1024 ? '500px' : window.innerWidth >= 640 ? '420px' : '350px',
+                        width: windowWidth >= 1024 ? '380px' : windowWidth >= 640 ? '320px' : '290px',
+                        height: windowWidth >= 1024 ? '500px' : windowWidth >= 640 ? '420px' : '350px',
                         boxShadow: '0px 2px 10px rgba(255, 255, 255, 0.5)'
                     }}
                     variants={imageVariants}
@@ -98,8 +110,8 @@ const Home = ({ homeImageRef }) => {
                         display: 'flex',
                         flexDirection: 'column',
                         gap: '30px',
-                        alignItems: window.innerWidth >= 1024 ? 'flex-start' : 'center',
-                        textAlign: window.innerWidth >= 1024 ? 'left' : 'center'
+                        alignItems: windowWidth >= 1024 ? 'flex-start' : 'center',
+                        textAlign: windowWidth >= 1024 ? 'left' : 'center'
                     }}
                     variants={textVariants}
                 >
@@ -113,28 +125,21 @@ const Home = ({ homeImageRef }) => {
                     >
                         <motion.h1 
                             style={{
-                                fontSize: window.innerWidth >= 1024 ? '40px' : window.innerWidth >= 640 ? '35px' : '28px',
+                                fontSize: windowWidth >= 1024 ? '40px' : windowWidth >= 640 ? '35px' : '28px',
                                 fontWeight: 600,
                                 marginBottom: '0px'
                             }}
                             variants={textVariants}
                         >
                             Hi I'm{' '}
-                            <span style={{
-                                background: 'linear-gradient(270deg, #DF8908 10%, #B415FF 100%)',
-                                backgroundSize: '200% 200%',
-                                backgroundClip: 'text',
-                                WebkitBackgroundClip: 'text',
-                                WebkitTextFillColor: 'transparent',
-                                animation: 'gradient-shift 3s ease infinite'
-                            }}>
+                            <span className="animated-gradient">
                                 Venkata Krishna Mohan
                             </span>
                             ,
                         </motion.h1>
                         <motion.p 
                             style={{
-                                fontSize: window.innerWidth >= 1024 ? '20px' : '18px',
+                                fontSize: windowWidth >= 1024 ? '20px' : '18px',
                                 lineHeight: '30px',
                                 margin: 0
                             }}
@@ -144,7 +149,7 @@ const Home = ({ homeImageRef }) => {
                         </motion.p>
                         <motion.p 
                             style={{
-                                fontSize: window.innerWidth >= 1024 ? '20px' : '18px',
+                                fontSize: windowWidth >= 1024 ? '20px' : '18px',
                                 lineHeight: '30px',
                                 margin: 0
                             }}
@@ -158,8 +163,8 @@ const Home = ({ homeImageRef }) => {
                     <motion.div 
                         style={{
                             display: 'flex',
-                            flexDirection: window.innerWidth >= 640 ? 'row' : 'column',
-                            gap: window.innerWidth >= 640 ? '50px' : '20px',
+                            flexDirection: windowWidth >= 640 ? 'row' : 'column',
+                            gap: windowWidth >= 640 ? '50px' : '20px',
                             alignItems: 'center',
                             justifyContent: 'center'
                         }}
@@ -174,33 +179,15 @@ const Home = ({ homeImageRef }) => {
                                 position: 'relative'
                             }}
                         >
-                            <Link 
+                            <AnimatedButton
+                                as={Link}
                                 to="contact" 
                                 smooth={true} 
                                 duration={500}
-                                style={{
-                                    display: 'block',
-                                    padding: '15px 25px',
-                                    borderRadius: '50px',
-                                    background: 'linear-gradient(264deg, orange -5.09%, rgb(235, 111, 228) 100%)',
-                                    backgroundSize: '200% 200%',
-                                    border: '2px solid white',
-                                    fontSize: '25px',
-                                    fontWeight: 600,
-                                    transition: 'all 0.3s ease',
-                                    textDecoration: 'none',
-                                    animation: 'gradient-shift 3s ease infinite',
-                                    boxShadow: '0px 0px 0px rgba(236, 72, 153, 0)'
-                                }}
-                                onMouseEnter={(e) => {
-                                    e.currentTarget.style.boxShadow = '0px 5px 20px rgba(236, 72, 153, 0.6)'
-                                }}
-                                onMouseLeave={(e) => {
-                                    e.currentTarget.style.boxShadow = '0px 0px 0px rgba(236, 72, 153, 0)'
-                                }}
+                                className="home-button home-button--primary"
                             >
                                 Connect with me
-                            </Link>
+                            </AnimatedButton>
                         </motion.div>
 
 
@@ -213,50 +200,19 @@ const Home = ({ homeImageRef }) => {
                                 position: 'relative'
                             }}
                         >
-                            <Link 
+                            <AnimatedButton
+                                as={Link}
                                 to="resume" 
                                 smooth={true} 
                                 duration={500}
-                                style={{
-                                    display: 'block',
-                                    padding: '15px 60px',
-                                    borderRadius: '50px',
-                                    border: '2px solid white',
-                                    fontSize: '25px',
-                                    fontWeight: 600,
-                                    transition: 'all 0.3s ease',
-                                    textDecoration: 'none',
-                                    boxShadow: '0px 0px 0px rgba(236, 72, 153, 0)'
-                                }}
-                                onMouseEnter={(e) => {
-                                    e.currentTarget.style.boxShadow = '0px 5px 20px rgba(236, 72, 153, 0.6)'
-                                }}
-                                onMouseLeave={(e) => {
-                                    e.currentTarget.style.boxShadow = '0px 0px 0px rgba(236, 72, 153, 0)'
-                                }}
+                                className="home-button home-button--secondary"
                             >
                                 My Resume
-                            </Link>
+                            </AnimatedButton>
                         </motion.div>
                     </motion.div>
                 </motion.div>
             </motion.div>
-
-            <style>
-                {`
-                    @keyframes gradient-shift {
-                        0% {
-                            background-position: 0% 50%;
-                        }
-                        50% {
-                            background-position: 100% 50%;
-                        }
-                        100% {
-                            background-position: 0% 50%;
-                        }
-                    }
-                `}
-            </style>
         </div>
     )
 }

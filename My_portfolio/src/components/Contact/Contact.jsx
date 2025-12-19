@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import AnimatedButton from '../UI/AnimatedButton';
 import gmail from '../../assets/gmail.png';
 import map from '../../assets/map.png';
 import phone from '../../assets/phone.png';
@@ -44,11 +45,11 @@ const Contact = () => {
     return (
         <div id='contact' className='contact'>
             <div className='contact-title'>
-                <h1>Get in touch</h1>
+                <h1 className='animated-gradient'>Get in touch</h1>
             </div>
             <div className='contact-section'>
                 <div className='contact-left'>
-                    <h1>Let's talk</h1>
+                    <h1 className='animated-gradient'>Let's talk</h1>
                     <p>I am currently available to take on new projects, so feel free to contact me.</p>
                     <div className="contact-details">
                         <div className="contact-info">
@@ -72,7 +73,7 @@ const Contact = () => {
                     <input id="email" type='email' placeholder='Enter your email' name='email' required />
                     <label htmlFor="message">Write your message here</label>
                     <textarea id="message" name='message' rows="8" placeholder='Enter your message' required></textarea>
-                    <button type='submit' className='contact-submit'>Submit Now</button>
+                    <AnimatedButton type='submit' className='contact-submit'>Submit Now</AnimatedButton>
                     {result && <p style={{ color: "white", marginTop: "10px" }}>{result}</p>}
                 </form>
             </div>

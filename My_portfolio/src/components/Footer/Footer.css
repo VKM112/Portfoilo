@@ -4,6 +4,8 @@
     flex-direction: column;
     gap: 30px;
     background-color: rgb(46, 46, 46);
+    width: 100%;
+    box-sizing: border-box;
 }
 
 
@@ -46,6 +48,8 @@
     border-radius: 80px;
     background: #646475;
     padding-right: 80px;
+    max-width: 100%;
+    box-sizing: border-box;
 }
 
 .footer-email-input input{
@@ -126,5 +130,49 @@
         gap: 20px;
         font-size: 16px;
     }
+}
 
+/* Mobile */
+@media screen and (max-width: 768px) {
+    .footer {
+        padding: 20px 15px;
+    }
+
+    .footer-topleft h1 {
+        font-size: 20px;
+    }
+
+    .footer-topleft p {
+        font-size: 16px;
+        max-width: 300px;
+    }
+
+    .footer-topright {
+        gap: 20px;
+    }
+
+    .footer-topright img {
+        width: 40px;
+        height: 40px;
+    }
+
+    .footer-email-input {
+        gap: 15px;
+        padding: 15px;
+        max-width: calc(100vw - 30px);
+        overflow: hidden;
+    }
+
+    .footer-email-input input {
+        font-size: 16px;
+    }
+
+    .footer-sub {
+        font-size: 16px;
+        padding: 15px 30px;
+    }
+
+    .footer-bottom {
+        font-size: 14px;
+    }
 }

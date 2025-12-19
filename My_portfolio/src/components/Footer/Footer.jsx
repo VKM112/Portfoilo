@@ -8,7 +8,7 @@ const Footer = () => {
         <div className='footer'>
             <div className="footer-top">
                 <div className="footer-topleft">
-                    <h1>Mohan</h1>
+                    <h1 className='animated-gradient'>Mohan</h1>
                     <p>Motivated and skilled Full Stack Developer with hands -on experience in web application development</p>
                 </div>
                 <div className="footer-topright">
